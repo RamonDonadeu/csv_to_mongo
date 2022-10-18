@@ -15,29 +15,12 @@ const collection = database.collection(collectionName)
 // const deleteDatabase = client.db(databaseName)
 // const deleteCollection = database.collection(collectionName)
 
-// deleteCollection.deleteMany()
+// deleteCollection.deleteMany({})
 
 // CUSTOM FUNCTIONS
 
 function formatValues(nameValue, value){
-    if(nameValue==='fecha_insercion'){
-        var date = value.split('/')
-        date = date[2] + '-'+ date[1] +'-'+date[0]
-        date = new Date(date)
-        return [nameValue,date]
-    }
-    if(nameValue==='parte'){
-        if(value==='redonda '){
-            return [nameValue,'Circular']
-        }
-        else if(value==='Ovalada '){
-            return [nameValue,'Ovalada']
-        }
-    }
-    if(nameValue=='Piezas Sobrantes' || nameValue=='Nº Piezas'){
-
-        return [nameValue, parseInt(value)]
-    }
+    
 
     return [nameValue, value]
 }
